@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class=" card frutilla">
+            <div class="fruta">
+                <p>Frutilla</p>
+            <img src="fresa.png">
+            </div>
+            <button class="btn" data-fruta = "frutilla">Agregar</button>
+        </div>
+
+        <div class="card banana">
+            <div class="fruta">
+                <p>Banana</p>
+                <img src="platano.png"> 
+            </div>
+            <button class="btn" data-fruta = "banana">Agregar</button>
+        </div>
+
+        <div class="card manzana">
+            <div class="fruta">
+                <p>Manzana</p>
+            <img src="manzana.png">
+            </div>           
+            <button class="btn" data-fruta ="manzana">Agregar</button>
+        </div>
+        
+        <ul class="list-group" id="carrito"></ul>
+    </div>
+
+   <template id="template">
+   
+        <li class="list-group">
+            <span class="lead">Frutilla</span>
+            <span class="num">12</span>
+        </li>
+    
+   </template>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
