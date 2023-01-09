@@ -4,8 +4,8 @@ const template = document.getElementById('template');
 const fragment = document.createDocumentFragment();
 const btns = document.querySelectorAll('.card .btn');
 
-//objeto en el que se irán acumulando los objetos "producto" que se clickeen:
-const carritoObjeto = {};
+//array en el que se irán acumulando los objetos "producto" que se clickeen:
+const carritoArray = [];
 
 //función que permite agregar los objetos "producto" al objeto "carritoObjeto"
 const agregarAlCarrito = (e)=>{
@@ -17,24 +17,27 @@ const agregarAlCarrito = (e)=>{
         id: e.target.dataset.fruta,
         cantidad: 1
     };
-    //condición para que aumente la cantidad de elementos marcadados si ya existen.
-    if (carritoObjeto.hasOwnProperty(producto.titulo)){
-        producto.cantidad = carritoObjeto[producto.titulo].cantidad + 1;
-    }
-    
-    //Se ingresa al "carritoObjeto" el producto clickeado:
-    carritoObjeto[producto.titulo] = producto;
+   
+    //comprobamos si el carrito tiene elementos o está vacío (-1)
+    const indice = carritoArray.findIndex((item) => item.id === producto.id);
 
-    pintarCarrito(producto);
+    //si no está empujo el producto al carrito sino le sumo 1
+    if(indice === -1){
+        carritoArray.push(producto);
+    }else {
+        carritoArray[indice].cantidad ++;
+    }
+
+    pintarCarrito(carritoArray);
 }
 
-//Función para ir "pintando" el carrito:
-const pintarCarrito = (prod) =>{
+//Función para ir "pintando" el carritoArray:
+const pintarCarrito = (array) =>{
     //El "carrito" (ul) comienza vacío:
     carrito.textContent = "";
 
-    //Object.values() hace un array con los elementos del objeto "carritoObjeto" para que se pueda recorrer.
-    Object.values(carritoObjeto).forEach(prod => {
+    //recorremos el carritoArray
+    array.forEach(prod => {
         const clone = template.content.firstElementChild.cloneNode(true); //Se crea un clon.
         
         //Se capturan los elementos que queremos mostrar y le modificamos el textContent con el del producto que se clickee.
