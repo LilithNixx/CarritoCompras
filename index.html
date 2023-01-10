@@ -12,35 +12,60 @@
         <div class=" card frutilla">
             <div class="fruta">
                 <p>Frutilla</p>
-            <img src="fresa.png">
+                <img src="fresa.png">
+                <p  class="precio">$300</p>
             </div>
-            <button class="btn" data-fruta = "frutilla">Agregar</button>
+            <button class="btn btn-fruta" data-fruta = "frutilla" data-precio = "300">Agregar</button>
         </div>
 
         <div class="card banana">
             <div class="fruta">
                 <p>Banana</p>
                 <img src="platano.png"> 
+                <p class="precio">$200</p>
             </div>
-            <button class="btn" data-fruta = "banana">Agregar</button>
+            <button class="btn btn-fruta" data-fruta = "banana" data-precio = "200">Agregar</button>
         </div>
 
         <div class="card manzana">
             <div class="fruta">
                 <p>Manzana</p>
-            <img src="manzana.png">
+                <img src="manzana.png">
+                <p class="precio">$100</p>
             </div>           
-            <button class="btn" data-fruta ="manzana">Agregar</button>
+            <button class="btn btn-fruta" data-fruta ="manzana" data-precio = "100">Agregar</button>
         </div>
         
-        <ul class="list-group" id="carrito"></ul>
-    </div>
+        <div class="container2">
+            <ul class="list-group" id="carrito"><!--template--></ul>
+        </div>
 
+         <!--footer-->
+            <footer id="footer" class="footer-container">
+                <template id="templateFooter">
+                    <div class="total-card">
+                        <div class="card-body">
+                            <p class="lead">Total $ <span class="total-precio">1500</span></p>
+                            <button class="btn btn-finalizar">Finalizar compra</button>
+                        </div>
+                    </div>
+                </template>
+            </footer>
+    <!--El template NO se renderiza. Por eso no importa su ubicación en el código-->
    <template id="template">
    
-        <li class="list-group">
+        <li class="list-group-li">
             <span class="lead">Frutilla</span>
             <span class="num">12</span>
+        </li>
+        <li class="list-group-li total">
+            <div class="caja-total">
+                <p class="lead-total">Total: $<span>$300</span></p>
+            </div>
+            <div class="btns-quitar-agregar">
+                <button class="btn btn-quitar">Quitar</button>
+                <button class="btn btn-agregar">Agregar</button>
+            </div>
         </li>
     
    </template>
